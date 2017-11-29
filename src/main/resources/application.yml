@@ -1,0 +1,13 @@
+spring:
+  mvc:
+    view.prefix: /WEB-INF/jsp/
+    view.suffix: .jsp
+logging:
+  level:
+    org.springframework.web=INFO
+server:
+  context-path: /demo
+  display-name: Demo
+  jsp-servlet:
+    init-parameters :
+      development: true
