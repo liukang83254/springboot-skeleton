@@ -1,4 +1,4 @@
-package net.manxlei.springboot.web.security;
+package net.manxlei.springboot.web.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +19,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/login").permitAll()
-                .antMatchers("/", "/*todo*/**").access("hasRole('USER')").and()
+                .antMatchers("/", "/h2/**", "/*todo*/**").access("hasRole('USER')").and()
                 .formLogin();
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
     }
 }

@@ -2,28 +2,32 @@ package net.manxlei.springboot.web.service;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import net.manxlei.springboot.web.dao.TodoRepository;
+import net.manxlei.springboot.web.entity.TodoEntity;
 import net.manxlei.springboot.web.model.Todo;
 
 @Service
 public class TodoService {
-	private static List<Todo> todos = new ArrayList<Todo>();
-	private static int todoCount = 3;
-
-	static {
-		todos.add(new Todo(1, "robin", "Learn Spring Boot", new Date(), false));
-		todos.add(new Todo(2, "robin", "Learn Struts", new Date(), false));
-		todos.add(new Todo(3, "robin", "Learn Hibernate", new Date(), false));
-	}
-
+	
+	
 	public List<Todo> retrieveTodos(String user) {
 		List<Todo> filteredTodos = new ArrayList<Todo>();
-		for (Todo todo : todos) {
-			if (todo.getUser().equalsIgnoreCase(user)) {
+		
+		Iterable<TodoEntity> todoEntitys = todoRepository.findAll();
+		for (TodoEntity entity : todoEntitys) {
+			if (user.equalsIgnoreCase(entity.getUser())) {
+				Todo todo = new Todo();
+				todo.setDesc(entity.getDesc());
+				todo.setId(todo.getId());
+				todo.setDone(entity.isDone());
+				todo.setTargetDate(entity.getTargetDate());
+				todo.setUser(entity.getUser());
+				
 				filteredTodos.add(todo);
 			}
 		}
@@ -31,31 +35,47 @@ public class TodoService {
 	}
 
 	public Todo retrieveTodo(int id) {
-		for (Todo todo : todos) {
-			if (todo.getId() == id) {
-				return todo;
-			}
+		Todo todo = null;
+		TodoEntity entity = todoRepository.findOne(id);
+		if (entity != null) {
+			todo = new Todo();
+			todo.setDesc(entity.getDesc());
+			todo.setId(todo.getId());
+			todo.setDone(entity.isDone());
+			todo.setTargetDate(entity.getTargetDate());
+			todo.setUser(entity.getUser());
 		}
-		return null;
-	}
-
-	public void updateTodo(Todo todo) {
-		todos.remove(todo);
-		todos.add(todo);
+		return todo;
 	}
 
 	public void addTodo(String name, String desc, Date targetDate,
 			boolean isDone) {
-		todos.add(new Todo(++todoCount, name, desc, targetDate, isDone));
+		TodoEntity entity = new TodoEntity();
+		entity.setDesc(desc);
+		entity.setDone(isDone);
+		entity.setTargetDate(targetDate);
+		entity.setUser(name);
+		todoRepository.save(entity);
 	}
 
 	public void deleteTodo(int id) {
-		Iterator<Todo> iterator = todos.iterator();
-		while (iterator.hasNext()) {
-			Todo todo = iterator.next();
-			if (todo.getId() == id) {
-				iterator.remove();
-			}
-		}
+		todoRepository.delete(id);
 	}
+	
+	public void updateTodo(Todo todo) {
+		TodoEntity entity = new TodoEntity();
+		entity.setDesc(todo.getDesc());
+		entity.setId(todo.getId());
+		entity.setDone(todo.isDone());
+		entity.setTargetDate(todo.getTargetDate());
+		entity.setUser(todo.getUser());
+		todoRepository.save(entity);
+	}
+	
+	private TodoRepository todoRepository;
+
+	@Autowired
+    public void setProductRepository(TodoRepository todoRepository) {
+        this.todoRepository = todoRepository;
+    }
 }
