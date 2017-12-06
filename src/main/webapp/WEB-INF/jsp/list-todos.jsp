@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ include file="common/taglib.jsp" %>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <%
  String ctxPath = request.getContextPath();
 %>
@@ -12,111 +12,114 @@
     <jsp:param name="ctxPath" value="${ctxPath}" />
 </jsp:include>
 <script src="<%=ctxPath%>/js/echarts.js"></script>
-<div id="main" style="width: 1000px;height:640px;"></div>
+<style>
+.checked {
+    color: orange;
+}
+</style>
+<div id="main" style="width: 1200px;height:400px;"></div>
+<div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Job</th>
+                    <th>Company</th>
+                    <th>Star Level</th>
+                    <th>Rating Score</th>
+                    <th>More Detail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${todos}" var="todo">
+                    <tr>
+                        <td>${todo.name}</td>
+                        <td>${todo.job}</td>
+                        <td>${todo.company}</td>
+                        <td><c:forEach begin="1" end="${todo.rating}" varStatus="loop"><span class="fa fa-star checked"></span></c:forEach></td>
+                        <td>${todo.ratingScore}</td>
+                        <td><a href="<%=ctxPath%>/check-one-todo?id=${todo.detail}">${todo.detail}</a></td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+</div>
 <script type="text/javascript">
 
 var myChart = echarts.init(document.getElementById('main'));
 
-myChart.title = '嵌套环形图';
-
 var option = {
-    tooltip: {
-        trigger: 'item',
-        formatter: "{a} <br/>{b}: {c} ({d}%)"
-    },
-    legend: {
-        orient: 'vertical',
-        x: 'left',
-        data:['直达','营销广告','搜索引擎','邮件营销','联盟广告','视频广告','百度','谷歌','必应','其他']
-    },
-    series: [
-        {
-            name:'访问来源',
-            type:'pie',
-            selectedMode: 'single',
-            radius: [0, '30%'],
-
-            label: {
-                normal: {
-                    position: 'inner'
-                }
-            },
-            labelLine: {
-                normal: {
-                    show: false
-                }
-            },
-            data:[
-                {value:335, name:'直达', selected:true},
-                {value:679, name:'营销广告'},
-                {value:1548, name:'搜索引擎'}
-            ]
+        title: {
+            text: 'Customer Credit Histogram',
+            subtext: 'Credit Rating'
         },
-        {
-            name:'访问来源',
-            type:'pie',
-            radius: ['40%', '55%'],
-            label: {
-                normal: {
-                    formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
-                    backgroundColor: '#eee',
-                    borderColor: '#aaa',
-                    borderWidth: 1,
-                    borderRadius: 4,
-                    // shadowBlur:3,
-                    // shadowOffsetX: 2,
-                    // shadowOffsetY: 2,
-                    // shadowColor: '#999',
-                    // padding: [0, 7],
-                    rich: {
-                        a: {
-                            color: '#999',
-                            lineHeight: 22,
-                            align: 'center'
-                        },
-                        // abg: {
-                        //     backgroundColor: '#333',
-                        //     width: '100%',
-                        //     align: 'right',
-                        //     height: 22,
-                        //     borderRadius: [4, 4, 0, 0]
-                        // },
-                        hr: {
-                            borderColor: '#aaa',
-                            width: '100%',
-                            borderWidth: 0.5,
-                            height: 0
-                        },
-                        b: {
-                            fontSize: 16,
-                            lineHeight: 33
-                        },
-                        per: {
-                            color: '#eee',
-                            backgroundColor: '#334455',
-                            padding: [2, 4],
-                            borderRadius: 2
-                        }
-                    }
-                }
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {
+                type: 'cross'
+            }
+        },
+        toolbox: {
+            show: true,
+            feature: {
+                saveAsImage: {}
+            }
+        },
+        xAxis:  {
+            type: 'category',
+            boundaryGap: false,
+            data: ['0', '50', '100', '150', '200', '250', '300', '350', '400', '450', '500', '550', '600', '650', '700']
+        },
+        yAxis: {
+            type: 'value',
+            axisLabel: {
+                formatter: '{value} people'
             },
-            data:[
-                {value:335, name:'直达'},
-                {value:310, name:'邮件营销'},
-                {value:234, name:'联盟广告'},
-                {value:135, name:'视频广告'},
-                {value:1048, name:'百度'},
-                {value:251, name:'谷歌'},
-                {value:147, name:'必应'},
-                {value:102, name:'其他'}
-            ]
-        }
-    ]
-};
+            axisPointer: {
+                snap: true
+            }
+        },
+        visualMap: {
+            show: false,
+            dimension: 1,
+            pieces: [{
+                lte: 100,
+                color: 'red'
+            }, {
+                gt: 100,
+                lte: 600,
+                color: 'grey'
+            }, {
+                gt: 600,
+                color: 'green'
+            }]
+        },
+        series: [
+            {
+                name:'No. of Customers',
+                type:'line',
+                smooth: true,
+                data: [0, 50, 85, 120, 150, 200, 210, 220, 205, 180, 140, 100, 80, 30, 5],
+                markArea: {
+                    data: [ [{
+                        name: 'lower score',
+                        xAxis: '0'
+                    }, {
+                        xAxis: '100'
+                    }], [{
+                        name: 'higher score',
+                        xAxis: '600'
+                    }, {
+                        xAxis: '700'
+                    }] ]
+                }
+            }
+        ]
+    };
+
 
 myChart.setOption(option);
 </script>
-
 <jsp:include page="common/footer.jsp" >
 	<jsp:param name="ctxPath" value="${ctxPath}" />
 </jsp:include>

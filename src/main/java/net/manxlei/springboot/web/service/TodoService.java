@@ -7,13 +7,33 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import net.manxlei.springboot.web.dao.CustomerRepository;
 import net.manxlei.springboot.web.dao.TodoRepository;
+import net.manxlei.springboot.web.entity.CustomerEntity;
 import net.manxlei.springboot.web.entity.TodoEntity;
+import net.manxlei.springboot.web.model.Customer;
 import net.manxlei.springboot.web.model.Todo;
 
 @Service
 public class TodoService {
 	
+	
+	public List<Customer> retrieveCustomers(String user) {
+		List<Customer> filteredTodos = new ArrayList<Customer>();
+		
+		Iterable<CustomerEntity> entitys = customerRepository.findAll();
+		for (CustomerEntity entity : entitys) {
+			Customer cust = new Customer();
+			cust.setName(entity.getName());
+			cust.setJob(entity.getJob());
+			cust.setCompany(entity.getCompany());
+			cust.setRating(entity.getRating());
+			cust.setRatingScore(entity.getRatingScore());
+			cust.setDetail(entity.getDetail());
+			filteredTodos.add(cust);
+		}
+		return filteredTodos;
+	}
 	
 	public List<Todo> retrieveTodos(String user) {
 		List<Todo> filteredTodos = new ArrayList<Todo>();
@@ -73,9 +93,15 @@ public class TodoService {
 	}
 	
 	private TodoRepository todoRepository;
+	private CustomerRepository customerRepository;
 
 	@Autowired
     public void setProductRepository(TodoRepository todoRepository) {
         this.todoRepository = todoRepository;
     }
+	
+	@Autowired
+	public void setCustomerRepository(CustomerRepository customerRepository) {
+		this.customerRepository = customerRepository;
+	}
 }

@@ -12,7 +12,7 @@
 </jsp:include>
 <div class="container">
 	Welcome ${name}!! <a href="${ctxPath}/list-todos">Click here</a> to manage your
-	todo's.
+	pending customer account's.
 </div>
 <jsp:include page="common/footer.jsp" >
     <jsp:param name="ctxPath" value="${ctxPath}" />
