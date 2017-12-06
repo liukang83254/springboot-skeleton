@@ -6,6 +6,9 @@ spring:
       console.enabled: true
       console.path: /h2
       settings.trace: true
+  http:
+      encoding.charset: UTF-8
+      encoding.enabled: true
   datasource:
     url: jdbc:h2:file:~/test
     username: sa
@@ -23,10 +26,14 @@ spring:
       
 logging:
   level:
-    org.springframework.web=DEBUG
+    root: WARN
+    org.springframework.web: DEBUG
+    org.springframework.security: INFO
 server:
   context-path: /demo
   display-name: Demo
+  tomcat:
+      uri-encoding: UTF-8
   jsp-servlet:
     init-parameters :
       development: true
