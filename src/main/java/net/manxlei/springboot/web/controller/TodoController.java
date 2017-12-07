@@ -41,6 +41,14 @@ public class TodoController {
 		model.put("todos", service.retrieveCustomers(name));
 		return "list-todos";
 	}
+	
+	@RequestMapping(value = "/personal", method = RequestMethod.GET)
+	public String showPersonal(ModelMap model) {
+
+		getLoggedInUserName(model);
+		
+		return "personal";
+	}
 
 	private String getLoggedInUserName(ModelMap model) {
 		Object principal = SecurityContextHolder.getContext()

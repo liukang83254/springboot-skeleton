@@ -26,7 +26,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         http.addFilterBefore(filter,CsrfFilter.class);
         
         http.authorizeRequests().antMatchers("/login").permitAll()
-                .antMatchers("/", "/h2/**", "/*todo*/**").access("hasRole('USER')").and()
+                .antMatchers("/", "/home", "/h2/**", "/*todo*/**","/*chart*/**").access("hasRole('USER')").and()
                 .formLogin().loginPage("/login");
         http.csrf().disable();
         http.headers().frameOptions().disable();

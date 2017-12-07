@@ -38,7 +38,7 @@
                         <td>${todo.company}</td>
                         <td><c:forEach begin="1" end="${todo.rating}" varStatus="loop"><span class="fa fa-star checked"></span></c:forEach></td>
                         <td>${todo.ratingScore}</td>
-                        <td><a href="<%=ctxPath%>/check-one-todo?id=${todo.detail}">${todo.detail}</a></td>
+                        <td><a href="${ctxPath}/personal?name=${todo.name}">${todo.detail}</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
