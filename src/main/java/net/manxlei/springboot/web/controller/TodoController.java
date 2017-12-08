@@ -42,6 +42,11 @@ public class TodoController {
 		return "list-todos";
 	}
 	
+	@RequestMapping(value = "/list-waiting", method = RequestMethod.GET)
+	public String showWaiting(ModelMap model) {
+		return "list-waiting";
+	}
+	
 	@RequestMapping(value = "/personal", method = RequestMethod.GET)
 	public String showPersonal(ModelMap model) {
 

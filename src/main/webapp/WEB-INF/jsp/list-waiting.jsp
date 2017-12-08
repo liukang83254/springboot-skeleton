@@ -5,13 +5,10 @@
 %>
 <c:set var="ctxPath" value="<%=ctxPath%>"></c:set>
 <jsp:include page="common/header.jsp" >
-	<jsp:param name="ctxPath" value="${ctxPath}" />
-</jsp:include>
-<jsp:include page="common/navigation.jsp" >
     <jsp:param name="ctxPath" value="${ctxPath}" />
 </jsp:include>
-<div class="container">
-	Welcome ${name}!! <a href="${ctxPath}/list-todos">Click here</a> to manage your customer account's.
+<div class="well">
+    Function will be go live soon
 </div>
 <jsp:include page="common/footer.jsp" >
     <jsp:param name="ctxPath" value="${ctxPath}" />

@@ -8,24 +8,23 @@
 	<jsp:param name="ctxPath" value="${ctxPath}" />
 </jsp:include>
 <c:set var="ctxPath" value="<%=ctxPath%>"></c:set>
-<jsp:include page="common/navigation.jsp" >
-    <jsp:param name="ctxPath" value="${ctxPath}" />
-</jsp:include>
 <script src="<%=ctxPath%>/js/echarts.js"></script>
 <style>
 .checked {
     color: orange;
 }
 </style>
-<div id="main" style="width: 1200px;height:400px;"></div>
-<div class="container">
+<div align="center">
+<br/>
+<div id="main" style="width: 100%;height:400px;"></div>
+<div class="container" >
         <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Job</th>
-                    <th>Company</th>
-                    <th>Star Level</th>
+                    <th>Position</th>
+                    <th>Organization</th>
+                    <th>Grading</th>
                     <th>Rating Score</th>
                     <th>More Detail</th>
                 </tr>
@@ -44,13 +43,15 @@
             </tbody>
         </table>
 </div>
+</div>
+
 <script type="text/javascript">
 
 var myChart = echarts.init(document.getElementById('main'));
 
 var option = {
         title: {
-            text: 'Customer Credit Histogram',
+            text: 'Customer Grading Histogram',
             subtext: 'Credit Rating'
         },
         tooltip: {
@@ -62,7 +63,7 @@ var option = {
         toolbox: {
             show: true,
             feature: {
-                saveAsImage: {}
+                //saveAsImage: {}
             }
         },
         xAxis:  {
@@ -73,7 +74,7 @@ var option = {
         yAxis: {
             type: 'value',
             axisLabel: {
-                formatter: '{value} people'
+                formatter: '{value} No.'
             },
             axisPointer: {
                 snap: true
@@ -82,17 +83,7 @@ var option = {
         visualMap: {
             show: false,
             dimension: 1,
-            pieces: [{
-                lte: 100,
-                color: 'red'
-            }, {
-                gt: 100,
-                lte: 600,
-                color: 'grey'
-            }, {
-                gt: 600,
-                color: 'green'
-            }]
+            pieces: []
         },
         series: [
             {
@@ -102,13 +93,39 @@ var option = {
                 data: [0, 50, 85, 120, 150, 200, 210, 220, 205, 180, 140, 100, 80, 30, 5],
                 markArea: {
                     data: [ [{
-                        name: 'lower score',
-                        xAxis: '0'
+                    	name: 'Low quality clients',
+                        xAxis: '0',
+                        itemStyle: {
+                            normal: {
+                                color: 'red',
+                                opacity: 0.2
+                            }
+                        },
+                        label : {
+                        	normal: {
+                                color: 'red',
+                                fontSize: 12,
+                                opacity: 1
+                            }
+                        }
                     }, {
                         xAxis: '100'
                     }], [{
-                        name: 'higher score',
-                        xAxis: '600'
+                        name: 'High quality clients',
+                        xAxis: '550',
+                        itemStyle: {
+                            normal: {
+                                color: 'green',
+                                opacity: 0.2
+                            }
+                        },
+                        label : {
+                            normal: {
+                                color: 'green',
+                                fontSize: 12,
+                                opacity: 1
+                            }
+                        }
                     }, {
                         xAxis: '700'
                     }] ]
