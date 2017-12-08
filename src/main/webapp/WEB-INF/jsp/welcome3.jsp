@@ -205,7 +205,7 @@
         <div class="page-content">
 
             <!-- Main sidebar -->
-            <div class="sidebar sidebar-main">
+            <div class="sidebar sidebar-main" style="width:230px">
                 <div class="sidebar-content">
 
                     <!-- User menu -->
@@ -239,12 +239,12 @@
                             <ul class="navigation navigation-main navigation-accordion">
                                 <!-- Main -->
                                 <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="" data-original-title="Main pages"></i></li>
-                                <li class="active"><a href="javascript:void(0)" onclick="go()"><i class="icon-home4"></i> <span>Comprehensive credit</span></a></li>
+                                <li class="active"><a href="javascript:void(0)" onclick="go()"><i class="icon-home4"></i> <span>Comprehensive Credit</span></a></li>
                                 <li>
-                                    <a href="javascript:void(0)" onclick="go1()"><i class="icon-stack2"></i> <span>Loans credit</span></a>
+                                    <a href="javascript:void(0)" onclick="go1()"><i class="icon-stack2"></i> <span>Loans Credit</span></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" onclick="go1()"><i class="icon-copy"></i> <span>Opening credit</span></a>
+                                    <a href="javascript:void(0)" onclick="go1()"><i class="icon-copy"></i> <span>Opening Credit</span></a>
                                 </li>
                                 <li>
                                     <a href="javascript:void(0)" onclick="go1()"><i class="icon-droplet2"></i> <span>Letter of Credit</span></a>

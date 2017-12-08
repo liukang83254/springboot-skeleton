@@ -62,8 +62,7 @@ var myChart = echarts.init(document.getElementById('main'));
 
 var option = {
         title: {
-            text: 'Customer Grading Histogram',
-            subtext: 'Credit Rating'
+            text: 'Customer Grading Histogram'
         },
         tooltip: {
             trigger: 'axis',

@@ -46,7 +46,7 @@ if("Luke Chen" == name)
                         name : refLineName
                     },
                      {
-                        value : [50, 14, 28, 31, 42, 60, 90],
+                        value : [67, 33, 17, 0, 100, 25, 50],
                         name : actLineName
                     }
                 ]
@@ -59,7 +59,46 @@ else if("Sam Ma" == name)
                         name : refLineName
                     },
                      {
-                        value : [87, 33, 76, 98, 45, 60, 90],
+                        value : [83, 67, 100, 100, 100, 100, 50],
+                        name : actLineName
+                    }
+                ]
+}
+else if("Stan Yu" == name)
+{
+    radarData = [
+                    {
+                        value : standardVal,
+                        name : refLineName
+                    },
+                     {
+                        value : [83, 33, 83, 25, 100, 20, 25],
+                        name : actLineName
+                    }
+                ]
+}
+else if("Yong Liu" == name)
+{
+    radarData = [
+                    {
+                        value : standardVal,
+                        name : refLineName
+                    },
+                     {
+                        value : [100, 100, 83, 50, 100, 80, 75],
+                        name : actLineName
+                    }
+                ]
+}
+else if("Shui Bian" == name)
+{
+    radarData = [
+                    {
+                        value : standardVal,
+                        name : refLineName
+                    },
+                     {
+                        value : [100, 100, 83, 100, 50, 20, 25],
                         name : actLineName
                     }
                 ]
@@ -72,7 +111,7 @@ else
                         name : refLineName
                     },
                      {
-                        value : [56, 90, 87, 100, 90, 60, 90],
+                        value : [100, 100, 100, 50, 100, 80, 100],
                         name : actLineName
                     }
                 ]
@@ -166,14 +205,136 @@ var labelTop = {
 	        color: 'rgba(0,0,0,0)'
 	    }
 	};
-	var radius = [25, 35];
+	var radius = [40, 55];
+	
+	
+	var seriesData = new Array();
+	
+	seriesData[0] = new Array();
+	seriesData[1] = new Array();
+	seriesData[2] = new Array();
+	seriesData[3] = new Array();
+	seriesData[4] = new Array();
+	
+	if("Luke Chen" == name)
+	{
+		seriesData[0][0] = 35;
+	    seriesData[0][1] = 65;
+	    
+	    seriesData[1][0] = 53;
+	    seriesData[1][1] = 57;
+	    
+	    seriesData[2][0] = 47;
+	    seriesData[2][1] = 53;
+	    
+	    seriesData[3][0] = 53;
+	    seriesData[3][1] = 47;
+	    
+	}
+	else if("Sam Ma" == name)
+	{
+		seriesData[0][0] = 84;
+	    seriesData[0][1] = 16;
+	    
+	    seriesData[1][0] = 85;
+	    seriesData[1][1] = 15;
+	    
+	    seriesData[2][0] = 88;
+	    seriesData[2][1] = 12;
+	    
+	    seriesData[3][0] = 85;
+	    seriesData[3][1] = 15;
+	    
+	}
+	else if("Stan Yu" == name)
+	{
+		seriesData[0][0] = 47;
+        seriesData[0][1] = 53;
+        
+        seriesData[1][0] = 64;
+        seriesData[1][1] = 36;
+        
+        seriesData[2][0] = 54;
+        seriesData[2][1] = 46;
+        
+        seriesData[3][0] = 64;
+        seriesData[3][1] = 36;
+	    
+	}
+	else if("Yong liu" == name)
+	{
+		seriesData[0][0] = 86;
+        seriesData[0][1] = 14;
+        
+        seriesData[1][0] = 96;
+        seriesData[1][1] = 4;
+        
+        seriesData[2][0] = 93;
+        seriesData[2][1] = 7;
+        
+        seriesData[3][0] = 96;
+        seriesData[3][1] = 4;
+	    
+	}
+	else if("Shui Bian" == name)
+	{
+		seriesData[0][0] = 90;
+        seriesData[0][1] = 10;
+        
+        seriesData[1][0] = 75;
+        seriesData[1][1] = 25;
+        
+        seriesData[2][0] = 92;
+        seriesData[2][1] = 8;
+        
+        seriesData[3][0] = 25;
+        seriesData[3][1] = 75;
+	    
+	}
+	else if("Adele Adkins" == name)
+	{
+		seriesData[0][0] = 88;
+        seriesData[0][1] = 12;
+        
+        seriesData[1][0] = 98;
+        seriesData[1][1] = 2;
+        
+        seriesData[2][0] = 93;
+        seriesData[2][1] = 7;
+        
+        seriesData[3][0] = 98;
+        seriesData[3][1] = 2;
+	    
+	}
+	else
+	{
+		seriesData[0][0] = 45;
+        seriesData[0][1] = 55;
+        
+        seriesData[1][0] = 65;
+        seriesData[1][1] = 35;
+        
+        seriesData[2][0] = 87;
+        seriesData[2][1] = 13;
+        
+        seriesData[3][0] = 64;
+        seriesData[3][1] = 36;
+	    
+	}
+	
+	for (var i=0 ; i<seriesData.length; i++) {
+		var tmp = seriesData[i][0];
+		seriesData[i][0] = seriesData[i][1];
+		seriesData[i][1] = tmp;
+	}
+	
 	option = {
 	    legend: {
-	        x : 'center',
-	        y : 'center',
+	    	show : true,
 	        data:[
-				'Open Account','Loan','Affiance','Credit','Asset'
-	        ]
+				'Opening credit','Loans credit','Trust Credit','Letter of Credit'
+	        ],
+	        bottom : '30%'
 	    },
 	    title : {
 	        text: 'Other Accessment'
@@ -188,8 +349,8 @@ var labelTop = {
 	            x: '0%', // for funnel
 	            itemStyle : labelFromatter,
 	            data : [
-	                {name:'other', value:46, itemStyle : labelBottom},
-	                {name:'Open Account', value:54,itemStyle : labelTop}
+	                {name:'other', value: seriesData[0][0] , itemStyle : labelBottom},
+	                {name:'Opening credit',value: seriesData[0][1], itemStyle : labelTop}
 	            ]
 	        },
 	        {
@@ -199,8 +360,8 @@ var labelTop = {
 	            x:'20%', // for funnel
 	            itemStyle : labelFromatter,
 	            data : [
-	                {name:'other', value:56, itemStyle : labelBottom},
-	                {name:'Loan', value:44,itemStyle : labelTop}
+	                {name:'other', value: seriesData[1][0], itemStyle : labelBottom},
+	                {name:'Loans credit', value: seriesData[1][1], itemStyle : labelTop}
 	            ]
 	        },
 	        {
@@ -210,8 +371,8 @@ var labelTop = {
 	            x:'40%', // for funnel
 	            itemStyle : labelFromatter,
 	            data : [
-	                {name:'other', value:65, itemStyle : labelBottom},
-	                {name:'Affiance', value:35,itemStyle : labelTop}
+	                {name:'other', value: seriesData[2][0], itemStyle : labelBottom},
+	                {name:'Trust Credit', value: seriesData[2][1], itemStyle : labelTop}
 	            ]
 	        },
 	        {
@@ -221,26 +382,15 @@ var labelTop = {
 	            x:'60%', // for funnel
 	            itemStyle : labelFromatter,
 	            data : [
-	                {name:'other', value:70, itemStyle : labelBottom},
-	                {name:'Credit', value:30,itemStyle : labelTop}
-	            ]
-	        },
-	        {
-	            type : 'pie',
-	            center : ['90%', '30%'],
-	            radius : radius,
-	            x:'80%', // for funnel
-	            itemStyle : labelFromatter,
-	            data : [
-	                {name:'other', value:73, itemStyle : labelBottom},
-	                {name:'Asset', value:27,itemStyle : labelTop}
+	                {name:'other', value: seriesData[3][0], itemStyle : labelBottom},
+	                {name:'Letter of Credit', value: seriesData[3][1], itemStyle : labelTop}
 	            ]
 	        }
 	    ],
 	    animationEasing: 'quarticIn'
 	};
 	
-	window.setTimeout('pieChart.setOption(option);', 1500);
+	window.setTimeout('pieChart.setOption(option);', 100);
 </script>
 
 <jsp:include page="common/footer.jsp" >
