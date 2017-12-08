@@ -239,19 +239,19 @@
                             <ul class="navigation navigation-main navigation-accordion">
                                 <!-- Main -->
                                 <li class="navigation-header"><span>Main</span> <i class="icon-menu" title="" data-original-title="Main pages"></i></li>
-                                <li class="active"><a href="javascript:void(0)" onclick="go()"><i class="icon-home4"></i> <span>综合信用</span></a></li>
+                                <li class="active"><a href="javascript:void(0)" onclick="go()"><i class="icon-home4"></i> <span>Comprehensive credit</span></a></li>
                                 <li>
-                                    <a href="javascript:void(0)" onclick="go1()"><i class="icon-stack2"></i> <span>贷款信用</span></a>
+                                    <a href="javascript:void(0)" onclick="go1()"><i class="icon-stack2"></i> <span>Loans credit</span></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" onclick="go1()"><i class="icon-copy"></i> <span>开户信用</span></a>
+                                    <a href="javascript:void(0)" onclick="go1()"><i class="icon-copy"></i> <span>Opening credit</span></a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0)" onclick="go1()"><i class="icon-droplet2"></i> <span>信用证</span></a>
+                                    <a href="javascript:void(0)" onclick="go1()"><i class="icon-droplet2"></i> <span>Letter of Credit</span></a>
                                     
                                 </li>
                                 
-                                <li><a href="javascript:void(0)" onclick="go1()"><i class="icon-list-unordered"></i> <span>信托信用<span class="label bg-blue-400">1.6</span></span></a></li>
+                                <li><a href="javascript:void(0)" onclick="go1()"><i class="icon-list-unordered"></i> <span>Trust Credit<span class="label bg-blue-400">1.6</span></span></a></li>
                                 <!-- /main -->
                             </ul>
                         </div>

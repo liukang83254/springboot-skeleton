@@ -36,7 +36,7 @@ var indicators = [
                { name: 'New Application Info.', max: 100},
                { name: 'Compliance Ability', max: 100}
             ];
-var standardVal = [90, 90, 10, 90, 90, 90, 90];
+var standardVal = [90, 85, 90, 90, 88, 95, 96];
 var radarData ;
 if("Luke Chen" == name)
 {

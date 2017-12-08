@@ -8,19 +8,27 @@
 <jsp:include page="common/header.jsp" >
     <jsp:param name="ctxPath" value="${ctxPath}" />
 </jsp:include>
-    <div class="container" style="margin-top:40px">
+    <div class="container" style="margin-top:100px">
         <div class="row">
-            <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <div class="col-sm-6 col-md-3 col-md-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <strong> Sign in to continue</strong>
                     </div>
-                    <c:if test = "${param.error ne null}">
-                    <div class="panel-heading">
-                        <strong style="color:red;font-size:12"> Incorrect User name Or Password</strong>
-                    </div>
-                    </c:if>
+                    
                     <div class="panel-body">
+                        <c:if test = "${param.error ne null}">
+                        <div class="panel-heading">
+                            <strong style="color:red;font-size:10"> Incorrect User name Or Password</strong>
+                        </div>
+                        </c:if>
+                        <form action="<%=ctxPath %>/login" method="POST" name="Login_Form" class="form-signin">       
+				              
+				              <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
+				              <input type="password" class="form-control" name="password" placeholder="Password" required=""/>            
+				              <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="Login" type="Submit">Login</button>            
+				        </form>
+				        <!--  
                         <form role="form" action="<%=ctxPath %>/login" method="POST">
                             <fieldset>
                                 <div class="row">
@@ -54,6 +62,7 @@
                                 </div>
                             </fieldset>
                         </form>
+                            -->
                     </div>
                 </div>
             </div>

@@ -13,12 +13,15 @@
 .checked {
     color: orange;
 }
+.table-condensed{
+  font-size: 12px;
+}
 </style>
 <div align="center">
 <br/>
-<div id="main" style="width: 100%;height:400px;"></div>
+<div id="main" style="width: 100%;height:300px;"></div>
 <div class="container" >
-        <table class="table table-bordered">
+        <table class="table table-condensed table-hover">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -42,6 +45,14 @@
                 </c:forEach>
             </tbody>
         </table>
+         <ul class="pagination">
+		  <li><a href="<%=ctxPath%>/list-todos?pageNo=1">1</a></li>
+		  <li><a href="<%=ctxPath%>/list-todos?pageNo=2">2</a></li>
+		  <li><a href="<%=ctxPath%>/list-todos?pageNo=3">3</a></li>
+		  <li><a href="<%=ctxPath%>/list-todos?pageNo=4">4</a></li>
+		  <li><a href="<%=ctxPath%>/list-todos?pageNo=5">5</a></li>
+		  <li><a href="<%=ctxPath%>/list-todos?pageNo=6&morepage=true">...</a></li>
+		</ul> 
 </div>
 </div>
 
@@ -60,16 +71,10 @@ var option = {
                 type: 'cross'
             }
         },
-        toolbox: {
-            show: true,
-            feature: {
-                //saveAsImage: {}
-            }
-        },
         xAxis:  {
             type: 'category',
             boundaryGap: false,
-            data: ['0', '50', '100', '150', '200', '250', '300', '350', '400', '450', '500', '550', '600', '650', '700']
+            data: ['200', '300', '350', '375', '400', '420', '450', '475', '500', '525', '550', '575', '600', '650', '700']
         },
         yAxis: {
             type: 'value',
@@ -83,6 +88,7 @@ var option = {
         visualMap: {
             show: false,
             dimension: 1,
+            color: 'blue',
             pieces: []
         },
         series: [
@@ -90,10 +96,16 @@ var option = {
                 name:'No. of Customers',
                 type:'line',
                 smooth: true,
-                data: [0, 50, 85, 120, 150, 200, 210, 220, 205, 180, 140, 100, 80, 30, 5],
+                lineStyle: {
+                	normal: {
+                		color : 'red',
+                		type : 'dashed'
+                	}
+                },
+                data: [0, 1, 2, 2, 3, 5, 6, 5, 5, 5, 4, 3, 2, 2, 0],
                 markArea: {
                     data: [ [{
-                    	name: 'Low quality clients',
+                    	name: 'Low credit clients',
                         xAxis: '0',
                         itemStyle: {
                             normal: {
@@ -109,9 +121,9 @@ var option = {
                             }
                         }
                     }, {
-                        xAxis: '100'
+                        xAxis: '400'
                     }], [{
-                        name: 'High quality clients',
+                        name: 'High credit clients',
                         xAxis: '550',
                         itemStyle: {
                             normal: {
