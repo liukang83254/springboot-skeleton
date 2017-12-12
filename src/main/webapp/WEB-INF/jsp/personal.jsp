@@ -167,148 +167,148 @@ radarChart.setOption(option);
 
 var pieChart = echarts.init(document.getElementById('pie'));
 var labelTop = {
-	    normal : {
-	        label : {
-	            show : true,
-	            position : 'center',
-	            formatter : ''
-	        },
-	        labelLine : {
-	            show : false
-	        }
-	    }
-	};
-	var labelFromatter = {
-	    normal : {
-	        label : {
-	            formatter : function (params){
-	                return 100 - params.value
-	            },
-	            textStyle: {
-	                baseline : 'center'
-	            }
-	        }
-	    },
-	}
-	var labelBottom = {
-	    normal : {
-	        color: '#ccc',
-	        label : {
-	            show : true,
-	            position : 'center'
-	        },
-	        labelLine : {
-	            show : false
-	        }
-	    },
-	    emphasis: {
-	        color: 'rgba(0,0,0,0)'
-	    }
-	};
-	var radius = [40, 55];
-	
-	
-	var seriesData = new Array();
-	
-	seriesData[0] = new Array();
-	seriesData[1] = new Array();
-	seriesData[2] = new Array();
-	seriesData[3] = new Array();
-	seriesData[4] = new Array();
-	
-	if("Luke Chen" == name)
-	{
-		seriesData[0][0] = 35;
-	    seriesData[0][1] = 65;
-	    
-	    seriesData[1][0] = 53;
-	    seriesData[1][1] = 57;
-	    
-	    seriesData[2][0] = 47;
-	    seriesData[2][1] = 53;
-	    
-	    seriesData[3][0] = 53;
-	    seriesData[3][1] = 47;
-	    
-	}
-	else if("Sam Ma" == name)
-	{
-		seriesData[0][0] = 84;
-	    seriesData[0][1] = 16;
-	    
-	    seriesData[1][0] = 85;
-	    seriesData[1][1] = 15;
-	    
-	    seriesData[2][0] = 88;
-	    seriesData[2][1] = 12;
-	    
-	    seriesData[3][0] = 85;
-	    seriesData[3][1] = 15;
-	    
-	}
-	else if("Stan Yu" == name)
-	{
-		seriesData[0][0] = 47;
-        seriesData[0][1] = 53;
+        normal : {
+            label : {
+                show : true,
+                position : 'center',
+                formatter : ''
+            },
+            labelLine : {
+                show : false
+            }
+        }
+    };
+    var labelFromatter = {
+        normal : {
+            label : {
+                formatter : function (params){
+                    return 1000 - params.value
+                },
+                textStyle: {
+                    baseline : 'center'
+                }
+            }
+        },
+    }
+    var labelBottom = {
+        normal : {
+            color: '#ccc',
+            label : {
+                show : true,
+                position : 'center'
+            },
+            labelLine : {
+                show : false
+            }
+        },
+        emphasis: {
+            color: 'rgba(0,0,0,0)'
+        }
+    };
+    var radius = [40, 55];
+    
+    
+    var seriesData = new Array();
+    
+    seriesData[0] = new Array();
+    seriesData[1] = new Array();
+    seriesData[2] = new Array();
+    seriesData[3] = new Array();
+    //seriesData[4] = new Array();
+    
+    if("Luke Chen" == name)
+    {
+        seriesData[0][0] = 370;
+        seriesData[0][1] = 1000-370;
         
-        seriesData[1][0] = 64;
-        seriesData[1][1] = 36;
+        seriesData[1][0] = 553;
+        seriesData[1][1] = 1000-553;
         
-        seriesData[2][0] = 54;
-        seriesData[2][1] = 46;
+        seriesData[2][0] = 487;
+        seriesData[2][1] = 1000-487;
         
-        seriesData[3][0] = 64;
-        seriesData[3][1] = 36;
-	    
-	}
-	else if("Yong liu" == name)
-	{
-		seriesData[0][0] = 86;
-        seriesData[0][1] = 14;
+        seriesData[3][0] = 553;
+        seriesData[3][1] = 1000-553;
         
-        seriesData[1][0] = 96;
-        seriesData[1][1] = 4;
+    }
+    else if("Sam Ma" == name)
+    {
+        seriesData[0][0] = 842;
+        seriesData[0][1] = 158;
         
-        seriesData[2][0] = 93;
-        seriesData[2][1] = 7;
+        seriesData[1][0] = 858;
+        seriesData[1][1] = 1000-858;
         
-        seriesData[3][0] = 96;
-        seriesData[3][1] = 4;
-	    
-	}
-	else if("Shui Bian" == name)
-	{
-		seriesData[0][0] = 90;
-        seriesData[0][1] = 10;
+        seriesData[2][0] = 883;
+        seriesData[2][1] = 1000-883;
         
-        seriesData[1][0] = 75;
-        seriesData[1][1] = 25;
+        seriesData[3][0] = 858;
+        seriesData[3][1] = 1000-858;
         
-        seriesData[2][0] = 92;
-        seriesData[2][1] = 8;
+    }
+    else if("Stan Yu" == name)
+    {
+        seriesData[0][0] = 473;
+        seriesData[0][1] = 1000-473;
         
-        seriesData[3][0] = 25;
-        seriesData[3][1] = 75;
-	    
-	}
-	else if("Adele Adkins" == name)
-	{
-		seriesData[0][0] = 88;
-        seriesData[0][1] = 12;
+        seriesData[1][0] = 620;
+        seriesData[1][1] = 1000-620;
         
-        seriesData[1][0] = 98;
-        seriesData[1][1] = 2;
+        seriesData[2][0] = 487;
+        seriesData[2][1] = 1000-487;
         
-        seriesData[2][0] = 93;
-        seriesData[2][1] = 7;
+        seriesData[3][0] = 620;
+        seriesData[3][1] = 1000-620;
         
-        seriesData[3][0] = 98;
-        seriesData[3][1] = 2;
-	    
-	}
-	else
-	{
-		seriesData[0][0] = 45;
+    }
+    else if("Yong liu" == name)
+    {
+        seriesData[0][0] = 793;
+        seriesData[0][1] = 1000-793;
+        
+        seriesData[1][0] = 793;
+        seriesData[1][1] = 1000-793;
+        
+        seriesData[2][0] = 810;
+        seriesData[2][1] = 1000-810;
+        
+        seriesData[3][0] = 793;
+        seriesData[3][1] = 1000-793;
+        
+    }
+    else if("Shui Bian" == name)
+    {
+        seriesData[0][0] = 853;
+        seriesData[0][1] = 1000-853;
+        
+        seriesData[1][0] = 753;
+        seriesData[1][1] = 1000-753;
+        
+        seriesData[2][0] = 870;
+        seriesData[2][1] = 1000-870;
+        
+        seriesData[3][0] = 753;
+        seriesData[3][1] = 1000-753;
+        
+    }
+    else if("Adele Adkins" == name)
+    {
+        seriesData[0][0] = 800;
+        seriesData[0][1] = 1000-800;
+        
+        seriesData[1][0] = 1000;
+        seriesData[1][1] = 0;
+        
+        seriesData[2][0] = 850;
+        seriesData[2][1] = 1000-850;
+        
+        seriesData[3][0] = 1000;
+        seriesData[3][1] = 0;
+        
+    }
+    else
+    {
+        seriesData[0][0] = 45;
         seriesData[0][1] = 55;
         
         seriesData[1][0] = 65;
@@ -319,78 +319,78 @@ var labelTop = {
         
         seriesData[3][0] = 64;
         seriesData[3][1] = 36;
-	    
-	}
-	
-	for (var i=0 ; i<seriesData.length; i++) {
-		var tmp = seriesData[i][0];
-		seriesData[i][0] = seriesData[i][1];
-		seriesData[i][1] = tmp;
-	}
-	
-	option = {
-	    legend: {
-	    	show : true,
-	        data:[
-				'Opening credit','Loans credit','Trust Credit','Letter of Credit'
-	        ],
-	        bottom : '30%'
-	    },
-	    title : {
-	        text: 'Other Accessment'
-	        //x: 'center'
-	    },
-	   
-	    series : [
-	        {
-	            type : 'pie',
-	            center : ['10%', '30%'],
-	            radius : radius,
-	            x: '0%', // for funnel
-	            itemStyle : labelFromatter,
-	            data : [
-	                {name:'other', value: seriesData[0][0] , itemStyle : labelBottom},
-	                {name:'Opening credit',value: seriesData[0][1], itemStyle : labelTop}
-	            ]
-	        },
-	        {
-	            type : 'pie',
-	            center : ['30%', '30%'],
-	            radius : radius,
-	            x:'20%', // for funnel
-	            itemStyle : labelFromatter,
-	            data : [
-	                {name:'other', value: seriesData[1][0], itemStyle : labelBottom},
-	                {name:'Loans credit', value: seriesData[1][1], itemStyle : labelTop}
-	            ]
-	        },
-	        {
-	            type : 'pie',
-	            center : ['50%', '30%'],
-	            radius : radius,
-	            x:'40%', // for funnel
-	            itemStyle : labelFromatter,
-	            data : [
-	                {name:'other', value: seriesData[2][0], itemStyle : labelBottom},
-	                {name:'Trust Credit', value: seriesData[2][1], itemStyle : labelTop}
-	            ]
-	        },
-	        {
-	            type : 'pie',
-	            center : ['70%', '30%'],
-	            radius : radius,
-	            x:'60%', // for funnel
-	            itemStyle : labelFromatter,
-	            data : [
-	                {name:'other', value: seriesData[3][0], itemStyle : labelBottom},
-	                {name:'Letter of Credit', value: seriesData[3][1], itemStyle : labelTop}
-	            ]
-	        }
-	    ],
-	    animationEasing: 'quarticIn'
-	};
-	
-	window.setTimeout('pieChart.setOption(option);', 100);
+        
+    }
+    
+    for (var i=0 ; i<seriesData.length; i++) {
+        var tmp = seriesData[i][0];
+        seriesData[i][0] = seriesData[i][1];
+        seriesData[i][1] = tmp;
+    }
+    
+    option = {
+        legend: {
+            show : true,
+            data:[
+                'Opening credit','Loans credit','Trust Credit','Letter of Credit'
+            ],
+            bottom : '30%'
+        },
+        title : {
+            text: 'Other Accessment'
+            //x: 'center'
+        },
+       
+        series : [
+            {
+                type : 'pie',
+                center : ['10%', '30%'],
+                radius : radius,
+                x: '0%', // for funnel
+                itemStyle : labelFromatter,
+                data : [
+                    {name:'other', value: seriesData[0][0] , itemStyle : labelBottom},
+                    {name:'Opening credit',value: seriesData[0][1], itemStyle : labelTop}
+                ]
+            },
+            {
+                type : 'pie',
+                center : ['30%', '30%'],
+                radius : radius,
+                x:'20%', // for funnel
+                itemStyle : labelFromatter,
+                data : [
+                    {name:'other', value: seriesData[1][0], itemStyle : labelBottom},
+                    {name:'Loans credit', value: seriesData[1][1], itemStyle : labelTop}
+                ]
+            },
+            {
+                type : 'pie',
+                center : ['50%', '30%'],
+                radius : radius,
+                x:'40%', // for funnel
+                itemStyle : labelFromatter,
+                data : [
+                    {name:'other', value: seriesData[2][0], itemStyle : labelBottom},
+                    {name:'Trust Credit', value: seriesData[2][1], itemStyle : labelTop}
+                ]
+            },
+            {
+                type : 'pie',
+                center : ['70%', '30%'],
+                radius : radius,
+                x:'60%', // for funnel
+                itemStyle : labelFromatter,
+                data : [
+                    {name:'other', value: seriesData[3][0], itemStyle : labelBottom},
+                    {name:'Letter of Credit', value: seriesData[3][1], itemStyle : labelTop}
+                ]
+            }
+        ],
+        animationEasing: 'quarticIn'
+    };
+    
+    window.setTimeout('pieChart.setOption(option);', 100);
 </script>
 
 <jsp:include page="common/footer.jsp" >
