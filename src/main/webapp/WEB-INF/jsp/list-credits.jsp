@@ -33,26 +33,26 @@
                 </tr>
             </thead>
             <tbody>
-                <c:forEach items="${todos}" var="todo">
+                <c:forEach items="${credits}" var="credit">
                     <tr>
-                        <td>${todo.name}</td>
-                        <td>${todo.job}</td>
-                        <td>${todo.company}</td>
-                        <td><c:forEach begin="1" end="${todo.rating}" varStatus="loop"><span class="fa fa-star checked"></span></c:forEach></td>
-                        <td>${todo.ratingScore}</td>
-                        <td><a href="${ctxPath}/personal?name=${todo.name}">${todo.detail}</a></td>
+                        <td>${credit.name}</td>
+                        <td>${credit.job}</td>
+                        <td>${credit.company}</td>
+                        <td><c:forEach begin="1" end="${credit.rating}" varStatus="loop"><span class="fa fa-star checked"></span></c:forEach></td>
+                        <td>${credit.ratingScore}</td>
+                        <td><a href="${ctxPath}/personal?name=${credit.name}">${credit.detail}</a></td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
          <ul class="pagination">
-		  <li><a href="<%=ctxPath%>/list-todos?pageNo=1">1</a></li>
-		  <li><a href="<%=ctxPath%>/list-todos?pageNo=2">2</a></li>
-		  <li><a href="<%=ctxPath%>/list-todos?pageNo=3">3</a></li>
-		  <li><a href="<%=ctxPath%>/list-todos?pageNo=4">4</a></li>
-		  <li><a href="<%=ctxPath%>/list-todos?pageNo=5">5</a></li>
-		  <li><a href="<%=ctxPath%>/list-todos?pageNo=6&morepage=true">...</a></li>
-		</ul> 
+		  <li><a href="<%=ctxPath%>/list-credits?pageNo=1">1</a></li>
+		  <li><a href="<%=ctxPath%>/list-credits?pageNo=2">2</a></li>
+		  <li><a href="<%=ctxPath%>/list-credits?pageNo=3">3</a></li>
+		  <li><a href="<%=ctxPath%>/list-credits?pageNo=4">4</a></li>
+		  <li><a href="<%=ctxPath%>/list-credits?pageNo=5">5</a></li>
+		  <li><a href="<%=ctxPath%>/list-credits?pageNo=6&morepage=true">...</a></li>
+		</ul>
 </div>
 </div>
 

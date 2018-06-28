@@ -41,7 +41,7 @@
     <!-- /theme JS files -->
     <script type="text/javascript">
     function go() {
-    	document.getElementById('iframebox').src = "<%=ctxPath%>/list-todos";
+    	document.getElementById('iframebox').src = "<%=ctxPath%>/list-credits";
     }
     function go1() {
     	document.getElementById('iframebox').src = "<%=ctxPath%>/list-waiting";
@@ -266,7 +266,7 @@
             <!-- Main content -->
             <div class="content-wrapper">
                 <div id="wrapper" style="position:relative">
-			        <iframe scrolling="auto" frameborder="0" src="<%=ctxPath%>/list-todos" style="position: absolute;top:0px;height:100vh; width: 100%;" name="iframebox" id="iframebox">
+			        <iframe scrolling="auto" frameborder="0" src="<%=ctxPath%>/list-credits" style="position: absolute;top:0px;height:100vh; width: 100%;" name="iframebox" id="iframebox">
                 </iframe>
 			    </div>
             </div>

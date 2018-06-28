@@ -11,7 +11,7 @@
     <jsp:param name="ctxPath" value="${ctxPath}" />
 </jsp:include>
 <div class="container">
-	Welcome ${name}!! <a href="${ctxPath}/list-todos">Click here</a> to manage your customer account's.
+	Welcome ${name}!! <a href="${ctxPath}/list-credits">Click here</a> to manage your customer account's.
 </div>
 <jsp:include page="common/footer.jsp" >
     <jsp:param name="ctxPath" value="${ctxPath}" />
